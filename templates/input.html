@@ -10,6 +10,25 @@
         {% endfor %}
     </datalist>
 
+    <form action="/input" method="post">
+        <label for="project_title">Project Title</label>
+        <input type="text" name="project_title" id="project_title" list="project-suggestions">
+
+        <input type="text" name="title" id="title">
+
+        <textarea name="description" rows="4" id="description"></textarea>
+
+        <select name="status" id="status">
+            <option value="blocked">Blocked</option>
+            <option value="in_progress">In Progress</option>
+            <option value="done">Done</option>
+        </select>
+
+        <input type="text" name="next_steps" id="next_steps">
+
+        <button type="submit">Input</button>
+    </form>
+
     <!-- TODO: Create a form that submits to this same route via POST -->
     <!-- Your form needs these fields: -->
     <!--   project_title: text input — connect it to the datalist above:          -->

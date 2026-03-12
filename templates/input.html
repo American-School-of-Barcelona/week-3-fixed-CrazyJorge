@@ -13,17 +13,21 @@
     <form action="/input" method="post">
         <label for="project_title">Project Title</label>
         <input type="text" name="project_title" id="project_title" list="project-suggestions">
+        
+        <label for="project_date">Date</label>
+        <input type="text" name="project_date" id="project_date">
 
-        <input type="text" name="title" id="title">
-
+        <label for="description">Description</label>
         <textarea name="description" rows="4" id="description"></textarea>
 
+        <label for="status">Status</label>
         <select name="status" id="status">
             <option value="blocked">Blocked</option>
             <option value="in_progress">In Progress</option>
             <option value="done">Done</option>
         </select>
 
+        <label for="next_steps">Next Steps</label>
         <input type="text" name="next_steps" id="next_steps">
 
         <button type="submit">Input</button>

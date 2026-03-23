@@ -30,6 +30,17 @@ def display_project(project_title):
 @app.route("/input", methods=["GET", "POST"])
 def input_task():
     if request.method == "POST":
+        project_title = request.form["project_title"]
+        title = request.form["title"]
+        description = request.form["description"]
+        status = request.form["status"]
+        next_steps = request.form["next_steps"]
+        datetime_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with open("tasks.csv", "a", newline="") as f:
+            fieldnames = ["datetime", "project_title", "title", "description", "status", "next_steps"]
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writerow({"datetime": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "project_title": project_title, "title": title, "description": description, "status": status, "next_steps": next_steps})
+        return redirect(url_for("display"))
         # TODO: Read each field from request.form
         #   project_title = request.form["project_title"]
         #   title = request.form["title"]
